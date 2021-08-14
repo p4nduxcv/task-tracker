@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Header = ({ title }) => {
   return (
     <hearder>
-      <h1> {title}</h1>
+      <h1 style={headerStyling}> {title}</h1>
     </hearder>
   );
 };
@@ -19,4 +19,8 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
+//styling objects JS
+const headerStyling = {
+  color: "red",
+};
 export default Header;
