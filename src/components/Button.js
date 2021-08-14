@@ -1,10 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Button = ({ text, color }) => {
-  const onClick = (event) => {
-    console.log("click", event);
-  };
+const Button = ({ text, color, onClick }) => {
   return (
     <button
       onClick={onClick}
