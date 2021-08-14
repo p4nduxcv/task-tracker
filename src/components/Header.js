@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 
 const Header = ({ title }) => {
   return (
-    <hearder>
+    <hearder className="header">
       <h1 style={headerStyling}> {title}</h1>
+      <button className="btn">Add</button>
     </hearder>
   );
 };
@@ -21,6 +22,6 @@ Header.propTypes = {
 
 //styling objects JS
 const headerStyling = {
-  color: "red",
+  color: "black",
 };
 export default Header;
