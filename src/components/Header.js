@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "./Button";
 
 const Header = ({ title }) => {
   return (
     <hearder className="header">
       <h1 style={headerStyling}> {title}</h1>
-      <button className="btn">Add</button>
+      <Button color="green" text="Add"></Button>
     </hearder>
   );
 };
