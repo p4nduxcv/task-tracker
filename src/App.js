@@ -28,10 +28,20 @@ function App() {
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
+  const toggleReminder = (id) => {
+    setTasks(
+      tasks.map((t) => (t.id === id ? { ...tasks, remider: !t.remider } : t))
+    );
+  };
+
   return (
     <div className="container">
-      <Header title="Task Tracker" />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      <Header title="Task Tracker" />{" "}
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
+      ) : (
+        <p>Nothing else Matters</p>
+      )}
     </div>
   );
 }
