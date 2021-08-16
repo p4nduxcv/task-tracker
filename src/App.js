@@ -22,6 +22,9 @@ function App() {
   };
 
   const addTask = (task) => {
+    axios
+      .post("http://localhost:5000/tasks", task)
+      .then((res) => alert("Task Added"));
     console.log(task);
   };
 
