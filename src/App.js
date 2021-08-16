@@ -9,6 +9,9 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const deleteTask = (id) => {
+    axios
+      .delete(`http://localhost:5000/tasks/${id}`)
+      .then(() => alert("Delete Successfully"));
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
@@ -30,7 +33,7 @@ function App() {
     });
   };
 
-  // Useeffect Hooks
+  // Useeffect Hooks to Display all datas
   useEffect(() => {
     gettasks();
   }, []);
