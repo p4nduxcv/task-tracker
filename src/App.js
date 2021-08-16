@@ -1,7 +1,8 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddTask from "./components/AddTask";
+import axios from "axios";
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
@@ -20,6 +21,19 @@ function App() {
   const addTask = (task) => {
     console.log(task);
   };
+
+  // Fetch Task
+  const gettasks = () => {
+    axios.get("http://localhost:5000/tasks").then((res) => {
+      console.log(res);
+      setTasks(res.data);
+    });
+  };
+
+  // Useeffect Hooks
+  useEffect(() => {
+    gettasks();
+  }, []);
 
   return (
     <div className="container">
