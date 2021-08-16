@@ -16,6 +16,8 @@ function App() {
   };
 
   const toggleReminder = (id) => {
+    gettasksById(id);
+    axios.put(`http://localhost:5000/tasks/${id}`);
     setTasks(
       tasks.map((t) => (t.id === id ? { ...tasks, remider: !t.remider } : t))
     );
@@ -28,10 +30,18 @@ function App() {
     console.log(task);
   };
 
+  // Fetch task by Id
+  const gettasksById = (id) => {
+    axios.get(`http://localhost:5000/tasks/${id}`).then((res) => {
+      console.log(res.data);
+      return res.data;
+    });
+  };
+
   // Fetch Task
   const gettasks = () => {
-    axios.get("http://localhost:5000/tasks").then((res) => {
-      console.log(res);
+    axios.get(`http://localhost:5000/tasks`).then((res) => {
+      console.log(res.data);
       setTasks(res.data);
     });
   };
